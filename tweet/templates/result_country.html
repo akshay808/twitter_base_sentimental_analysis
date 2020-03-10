@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<!-- start -->
+
+<script type="text/javascript">
+
+function chartContainer_naive_c1_chart() {
+		var chart1 = new CanvasJS.Chart("chartContainer_naive_c1",
+		{
+			title:{
+				text: "Naive Bayes Classifier Result Plot",
+				fontFamily: "Impact",
+				fontWeight: "normal"
+			},
+
+			legend:{
+				verticalAlign: "bottom",
+				horizontalAlign: "center"
+			},
+			data: [
+			{
+			//startAngle: 45,
+			indexLabelFontSize: 20,
+			indexLabelFontFamily: "Garamond",
+			indexLabelFontColor: "darkgrey",
+			indexLabelLineColor: "darkgrey",
+			indexLabelPlacement: "outside",
+			type: "doughnut",
+			showInLegend: true,
+			dataPoints: [
+			{  y: {{positive1}}, legendText:"Positive {{positive1}}", indexLabel: "Positive {{positive1}}" },
+			{  y: {{negative1}}, legendText:"Negative {{negative1}}", indexLabel: "Negative {{negative1}}" },
+			{% if neutral1 %}
+			{  y: {{neutral1}}, legendText:"Neutral {{neutral1}}", indexLabel: "Neutral {{neutral1}}" }
+			{% endif %}
+			]
+		}
+		]
+	});
+
+		chart1.render();
+	}
+
+	function chartContainer_naive_c2_chart() {
+		var chart2 = new CanvasJS.Chart("chartContainer_naive_c2",
+		{
+			title:{
+				text: "Naive Bayes Classifier Result Plot",
+				fontFamily: "Impact",
+				fontWeight: "normal"
+			},
+
+			legend:{
+				verticalAlign: "bottom",
+				horizontalAlign: "center"
+			},
+			data: [
+			{
+			//startAngle: 45,
+			indexLabelFontSize: 20,
+			indexLabelFontFamily: "Garamond",
+			indexLabelFontColor: "darkgrey",
+			indexLabelLineColor: "darkgrey",
+			indexLabelPlacement: "outside",
+			type: "doughnut",
+			showInLegend: true,
+			dataPoints: [
+			{  y: {{positive2}}, legendText:"Positive {{positive2}}", indexLabel: "Positive {{positive2}}" },
+			{  y: {{negative2}}, legendText:"Negative {{negative2}}", indexLabel: "Negative {{negative2}}" },
+			{% if neutral %}
+			{  y: {{neutral2}}, legendText:"Neutral {{neutral2}}", indexLabel: "Neutral {{neutral2}}" }
+			{% endif %}
+			]
+		}
+		]
+	});
+
+		chart2.render();
+	}
+
+	function chartContainer_max_c1_chart() {
+		var chart = new CanvasJS.Chart("chartContainer_max_c1",
+		{
+			title:{
+				text: "Maximum Entropy Classifier Result Plot",
+				fontFamily: "Impact",
+				fontWeight: "normal"
+			},
+
+			legend:{
+				verticalAlign: "bottom",
+				horizontalAlign: "center"
+			},
+			data: [
+			{
+			//startAngle: 45,
+			indexLabelFontSize: 20,
+			indexLabelFontFamily: "Garamond",
+			indexLabelFontColor: "darkgrey",
+			indexLabelLineColor: "darkgrey",
+			indexLabelPlacement: "outside",
+			type: "doughnut",
+			showInLegend: true,
+			dataPoints: [
+			{  y: {{positive1}}, legendText:"Positive {{positive1}}", indexLabel: "Positive {{positive1}}" },
+			{  y: {{negative1}}, legendText:"Negative {{negative1}}", indexLabel: "Negative {{negative1}}" }
+			]
+		}
+		]
+	});
+
+		chart.render();
+	}
+
+	function chartContainer_max_c2_chart() {
+		var chart = new CanvasJS.Chart("chartContainer_max_c2",
+		{
+			title:{
+				text: "Maximum Entropy Classifier Result Plot",
+				fontFamily: "Impact",
+				fontWeight: "normal"
+			},
+
+			legend:{
+				verticalAlign: "bottom",
+				horizontalAlign: "center"
+			},
+			data: [
+			{
+			//startAngle: 45,
+			indexLabelFontSize: 20,
+			indexLabelFontFamily: "Garamond",
+			indexLabelFontColor: "darkgrey",
+			indexLabelLineColor: "darkgrey",
+			indexLabelPlacement: "outside",
+			type: "doughnut",
+			showInLegend: true,
+			dataPoints: [
+			{  y: {{positive2}}, legendText:"Positive {{positive2}}", indexLabel: "Positive {{positive2}}" },
+			{  y: {{negative2}}, legendText:"Negative {{negative2}}", indexLabel: "Negative {{negative2}}" }
+			]
+		}
+		]
+	});
+
+		chart.render();
+	}
+
+	function naive_c(){
+		chartContainer_naive_c1_chart();
+		chartContainer_naive_c2_chart();
+	}
+
+	function max_c(){
+		chartContainer_max_c1_chart();
+		chartContainer_max_c2_chart();
+	}
+</script>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='asset/jquery-1.12.4.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='asset/jquery.canvasjs.min.js') }}"></script>
+
+
+	<!-- end -->
+	<title>Legend</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+	<link rel='stylesheet' id='prettyphoto-css'  href="{{ url_for('static', filename='css/prettyPhoto.css') }}" type='text/css' media='all'>
+	<link href="{{ url_for('static', filename='css/fontello.css') }}" type="text/css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+	<script src="{{ url_for('static', filename='js/notiny.min.js') }}"></script>
+	<link href="{{ url_for('static', filename='css/notiny.min.css') }}" rel="stylesheet">
+
+
+<!--[if lt IE 7]>
+<link href="css/fontello-ie7.css" type="text/css" rel="stylesheet">  
+<![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body {
+	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+</style>
+<link href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}" />
+
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/font-awesome/css/font-awesome.css') }}" />
+
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic" />
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<![endif]-->
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.scrollTo-1.4.2-min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.localscroll-1.2.7-min.js') }}"></script>
+
+</head>
+<body>
+	<!-- <div id="top"></div> -->
+	<!-- <div id="chartContainer" style="height: 300px; width: 100%;"></div> -->
+	<!-- Modal -->
+	
+	{% if neutral1 %}
+	<div id="naive_classifier" class="modal fade" role="dialog">
+		<div class="modal-dialog" style="height:100%;">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+
+				<div class="modal-body">
+					<div id="chartContainer_naive_c1" style="height: 300px; width: 100%;"></div>
+					<div id="chartContainer_naive_c2" style="height: 300px; width: 100%;"></div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	{% else %}
+	<div id="max_classifier" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+
+				<div class="modal-body">
+					<div id="chartContainer_max_c1" style="height: 300px; width: 100%;"></div>
+					<div id="chartContainer_max_c2" style="height: 300px; width: 100%;"></div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	{% endif %}
+
+
+	<div id="headerwrap1">
+		{% if  neutral1 %}
+		<h1 class="fd"> Naive Bayes Classifier Result </h1>
+		{% else %}
+		<h1 class="fd"> Maximum Entropy Classifier Result </h1>
+		{% endif %}
+		<center>
+			<table cellpadding="5">
+				<tr>
+					<td align="center">
+						<h2>{{ country_one }}</h2>
+						<header class="clearfix">
+							<h4 class="pos"><span>Positive Tweets : </span> {{positive1}} %</h4> 
+							<h4 class="neg"><span>Negative Tweets : </span>{{negative1}} %</h4>
+							{% if neutral1 %}
+							<h4 class="neu"><span>Neutral Tweets : </span>{{neutral1}} %</h4>
+							{% endif %}
+						</header>
+					</td>
+					<td align="center">
+						<h2>{{ country_two }}</h2>
+						<header class="clearfix">
+							<h4 class="pos"><span>Positive Tweets : </span> {{positive2}} %</h4> 
+							<h4 class="neg"><span>Negative Tweets : </span>{{negative2}} %</h4>
+							{% if neutral1 %}
+							<h4 class="neu"><span>Neutral Tweets : </span>{{neutral2}} %</h4>
+							{% endif %}
+						</header>
+					</td>
+					<tr>
+					</table>
+				</center>
+				
+				{% if neutral1 %}
+				  <input align="left"  style="background-color: #008CBA;" type="submit" name="login" value="Graph Analysis!" class="cform-submit" id="fetch_modal" data-toggle="modal" data-target="#naive_classifier">
+				{% else %}
+				<input  align="left" style="background-color: #008CBA;" type="submit" name="login" value="Graph Analysis!" class="cform-submit" id="fetch_modal" data-toggle="modal" data-target="#max_classifier">
+				{% endif %}
+				<a href="/" style="background-color: red;font-size=50pt;color: white;padding: 20px 25px;text-align: center;
+background-color: #f44336;">Home</a>
+<a href="/world" style="background-color: red;font-size=50pt;color: white;padding: 20px 25px;text-align: center;
+background-color: #f44336;">Back</a>
+   
+			</div>
+			
+
+
+
+
+
+
+
+
+
+
+			<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+
+			<script src="{{ url_for('static', filename='js/jquery.prettyPhoto.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/site.js') }}"></script>
+			<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+{% if neutral1 %}
+	<script type="text/javascript">
+	window.onload = naive_c();
+	</script>
+
+{% else %}
+
+
+	<script type="text/javascript">
+	window.onload = max_c();
+	</script>
+
+{% endif %}
+
+		</body>
+		</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<!-- start -->
+
+
+<script type="text/javascript">
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer1",
+	{
+		title:{
+			text: "Maximum Entropy Classifier Result Plot",
+			fontFamily: "Impact",
+			fontWeight: "normal"
+		},
+
+		legend:{
+			verticalAlign: "bottom",
+			horizontalAlign: "center"
+		},
+		data: [
+		{
+			//startAngle: 45,
+			indexLabelFontSize: 20,
+			indexLabelFontFamily: "Garamond",
+			indexLabelFontColor: "darkgrey",
+			indexLabelLineColor: "darkgrey",
+			indexLabelPlacement: "outside",
+			type: "doughnut",
+			showInLegend: true,
+			dataPoints: [
+				{  y: {{positive}}, legendText:"Positive {{positive}}", indexLabel: "Positive {{positive}}" },
+				{  y: {{negative}}, legendText:"Negative {{negative}}", indexLabel: "Negative {{negative}}" }
+			]
+		}
+		]
+	});
+
+	chart.render();
+}
+</script>
+
+
+<script type="text/javascript">
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title:{
+			text: "Naive Bayes Classifier Result Plot",
+			fontFamily: "Impact",
+			fontWeight: "normal"
+		},
+
+		legend:{
+			verticalAlign: "bottom",
+			horizontalAlign: "center"
+		},
+		data: [
+		{
+			//startAngle: 45,
+			indexLabelFontSize: 20,
+			indexLabelFontFamily: "Garamond",
+			indexLabelFontColor: "darkgrey",
+			indexLabelLineColor: "darkgrey",
+			indexLabelPlacement: "outside",
+			type: "doughnut",
+			showInLegend: true,
+			dataPoints: [
+				{  y: {{positive}}, legendText:"Positive {{positive}}", indexLabel: "Positive {{positive}}" },
+				{  y: {{negative}}, legendText:"Negative {{negative}}", indexLabel: "Negative {{negative}}" },
+				{  y: {{neutral}}, legendText:"Neutral {{neutral}}", indexLabel: "Neutral {{neutral}}" }
+			]
+		}
+		]
+	});
+
+	chart.render();
+}
+</script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='asset/jquery-1.12.4.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='asset/jquery.canvasjs.min.js') }}"></script>
+
+
+<!-- end -->
+<title>Legend</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+<link rel='stylesheet' id='prettyphoto-css'  href="{{ url_for('static', filename='css/prettyPhoto.css') }}" type='text/css' media='all'>
+<link href="{{ url_for('static', filename='css/fontello.css') }}" type="text/css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/notiny.min.js') }}"></script>
+<link href="{{ url_for('static', filename='css/notiny.min.css') }}" rel="stylesheet">
+
+
+<!--[if lt IE 7]>
+<link href="css/fontello-ie7.css" type="text/css" rel="stylesheet">  
+<![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body {
+	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+</style>
+<link href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/font-awesome/css/font-awesome.css') }}" />
+
+    
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic" />
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<![endif]-->
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.scrollTo-1.4.2-min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.localscroll-1.2.7-min.js') }}"></script>
+
+</head>
+<body>
+<!-- <div id="top"></div> -->
+<!-- <div id="chartContainer" style="height: 300px; width: 100%;"></div> -->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+      </div>
+     
+    </div>
+
+  </div>
+</div>
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+      </div>
+     
+    </div>
+
+  </div>
+</div>
+
+<div id="headerwrap1">
+	{% if neutral %}
+    	<h1 class="fd"> Naive Bayes Classifier Result </h1>
+    {% else %}
+    	<h1 class="fd"> Maximum Entropy Classifier Result </h1>
+    {% endif %}
+  <header class="clearfix">
+    <h1 class="pos"><span>Positive Tweets : </span> {{positive}} %</h1> 
+    <h1 class="neg"><span>Negative Tweets : </span>{{negative}} %</h1>
+    {% if neutral %}
+    	<h1 class="neu"><span>Neutral Tweets : </span>{{neutral}} %</h1>
+    {% endif %}
+    </header>
+    {% if neutral %}
+    <input  type="submit" name="login" value="Graph Analysis!" class="cform-submit" id="fetch_modal" data-toggle="modal" data-target="#myModal">
+     {% else %}
+     <input  type="submit" name="login" value="Graph Analysis!" class="cform-submit" id="fetch_modal" data-toggle="modal" data-target="#myModal1">
+    {% endif %}
+    
+<a href="/" style="background-color: red;font-size=50pt;color: white;padding: 20px 25px;text-align: center;
+background-color: #f44336;">Home</a>
+   
+</div>
+
+
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+
+<script src="{{ url_for('static', filename='js/jquery.prettyPhoto.js') }}"></script>
+<script src="{{ url_for('static', filename='js/site.js') }}"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        
+</body>
+</html>
